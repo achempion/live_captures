@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <% page_title = assigns[:page_title] || "LiveCaptures" %>
+    <% page_description =
+      assigns[:page_description] ||
+        "Live Examples for the LiveCapture component library. Improve the UI quality of your product by capturing visual states of LiveView components." %>
+    <% page_url =
+      assigns[:page_url] ||
+        (assigns[:conn] && Phoenix.Controller.current_url(assigns[:conn])) ||
+        url(~p"/") %>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
+    <meta name="description" content={page_description} />
+    <meta name="theme-color" content="#f8fafc" />
+    <link rel="icon" type="image/svg+xml" href={~p"/favicon.svg"} />
+    <link rel="canonical" href={page_url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="LiveCaptures" />
+    <meta property="og:title" content={page_title} />
+    <meta property="og:description" content={page_description} />
+    <meta property="og:url" content={page_url} />
+    <meta property="og:image" content={url(~p"/images/logo.svg")} />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="LiveCaptures logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page_title} />
+    <meta name="twitter:description" content={page_description} />
+    <meta name="twitter:image" content={url(~p"/images/logo.svg")} />
+    <meta name="twitter:image:alt" content="LiveCaptures logo" />
     <.live_title default="LiveCaptures" suffix=" · Phoenix Framework">
-      {assigns[:page_title]}
+      {page_title}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
