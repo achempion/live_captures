@@ -3,6 +3,8 @@ defmodule LiveCapturesWeb.PageControllerTest do
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")
-    assert html_response(conn, 200) =~ "Peace of mind from prototype to production"
+    html = html_response(conn, 200)
+    assert html =~ "live-capture-hero"
+    assert html =~ "Explore components"
   end
 end
