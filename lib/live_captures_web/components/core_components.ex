@@ -439,6 +439,18 @@ defmodule LiveCapturesWeb.CoreComponents do
   attr :name, :string, required: true
   attr :class, :any, default: "size-4"
 
+  def icon(%{name: "brand-hex"} = assigns) do
+    ~H"""
+    <img
+      src={Phoenix.VerifiedRoutes.static_path(LiveCapturesWeb.Endpoint, "/images/hexdocs-logo.svg")}
+      class={["object-contain", @class]}
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    />
+    """
+  end
+
   def icon(%{name: "brand-github"} = assigns) do
     ~H"""
     <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor" class={@class}>
