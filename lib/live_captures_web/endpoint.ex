@@ -25,6 +25,7 @@ defmodule LiveCapturesWeb.Endpoint do
     from: :live_captures,
     gzip: not code_reloading?,
     only: LiveCapturesWeb.static_paths(),
+    only_matching: ~w(favicon robots),
     raise_on_missing_only: code_reloading?
 
   # Code reloading can be explicitly enabled under the
