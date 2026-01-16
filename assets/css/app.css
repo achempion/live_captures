@@ -103,3 +103,23 @@
 [data-phx-session], [data-phx-teleported-src] { display: contents }
 
 /* This file is for your main application CSS */
+
+::selection {
+  background-color: oklch(84% 0.14 75);
+  color: oklch(18% 0.03 255);
+}
+
+::-moz-selection {
+  background-color: oklch(84% 0.14 75);
+  color: oklch(18% 0.03 255);
+}
+
+[data-theme=dark] ::selection {
+  background-color: oklch(62% 0.2 280);
+  color: oklch(96% 0.02 260);
+}
+
+[data-theme=dark] ::-moz-selection {
+  background-color: oklch(62% 0.2 280);
+  color: oklch(96% 0.02 260);
+}
