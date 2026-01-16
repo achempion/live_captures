@@ -1,6 +1,6 @@
 # LiveCaptures
 
-Live Examples for the LiveCapture component library.
+LiveCapture helps you create high-quality LiveView components faster.
 
 ## Website
 
