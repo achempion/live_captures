@@ -1,6 +1,8 @@
 /* See the Tailwind configuration guide for advanced usage
    https://tailwindcss.com/docs/configuration */
 
+/* Font loading handled via preload in root.html.heex for optimal performance */
+
 @import "tailwindcss" source(none);
 @source "../css";
 @source "../js";
@@ -104,22 +106,142 @@
 
 /* This file is for your main application CSS */
 
+:root {
+  --font-swiss: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Consolas",
+    "Liberation Mono", "Courier New", monospace;
+  --mono-font: var(--font-mono);
+
+  /* Dark theme (default) */
+  color-scheme: dark;
+  --mono-bg: #272822;
+  --mono-surface: #2d2a2e;
+  --mono-surface-strong: #343434;
+  --mono-text: #f8f8f2;
+  --mono-muted: #a9a9a2;
+  --mono-dim: #7b7b74;
+  --mono-yellow: #e6db74;
+  --mono-orange: #fd971f;
+  --mono-green: #a6e22e;
+  --mono-cyan: #66d9ef;
+  --mono-pink: #f92672;
+  --mono-purple: #ae81ff;
+  --mono-border: rgba(248, 248, 242, 0.12);
+  --mono-border-strong: rgba(248, 248, 242, 0.24);
+  --mono-grid: rgba(248, 248, 242, 0.06);
+  --mono-glow-cyan: rgba(102, 217, 239, 0.18);
+  --mono-glow-pink: rgba(249, 38, 114, 0.18);
+}
+
+/* Light theme - matches OS preference */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --mono-bg: #f6f5f1;
+    --mono-surface: #ffffff;
+    --mono-surface-strong: #f2f1ec;
+    --mono-text: #272822;
+    --mono-muted: #6b6a63;
+    --mono-dim: #8b8a83;
+    --mono-yellow: #b88c00;
+    --mono-orange: #d06900;
+    --mono-green: #3f7f00;
+    --mono-cyan: #0e748a;
+    --mono-pink: #c02456;
+    --mono-purple: #6b5dd3;
+    --mono-border: rgba(39, 40, 34, 0.12);
+    --mono-border-strong: rgba(39, 40, 34, 0.2);
+    --mono-grid: rgba(39, 40, 34, 0.08);
+    --mono-glow-cyan: rgba(14, 116, 138, 0.16);
+    --mono-glow-pink: rgba(192, 36, 86, 0.12);
+  }
+}
+
+/* Manual theme overrides */
+[data-theme=light] {
+  color-scheme: light;
+  --mono-bg: #f6f5f1;
+  --mono-surface: #ffffff;
+  --mono-surface-strong: #f2f1ec;
+  --mono-text: #272822;
+  --mono-muted: #6b6a63;
+  --mono-dim: #8b8a83;
+  --mono-yellow: #b88c00;
+  --mono-orange: #d06900;
+  --mono-green: #3f7f00;
+  --mono-cyan: #0e748a;
+  --mono-pink: #c02456;
+  --mono-purple: #6b5dd3;
+  --mono-border: rgba(39, 40, 34, 0.12);
+  --mono-border-strong: rgba(39, 40, 34, 0.2);
+  --mono-grid: rgba(39, 40, 34, 0.08);
+  --mono-glow-cyan: rgba(14, 116, 138, 0.16);
+  --mono-glow-pink: rgba(192, 36, 86, 0.12);
+}
+
+[data-theme=dark] {
+  color-scheme: dark;
+  --mono-bg: #272822;
+  --mono-surface: #2d2a2e;
+  --mono-surface-strong: #343434;
+  --mono-text: #f8f8f2;
+  --mono-muted: #a9a9a2;
+  --mono-dim: #7b7b74;
+  --mono-yellow: #e6db74;
+  --mono-orange: #fd971f;
+  --mono-green: #a6e22e;
+  --mono-cyan: #66d9ef;
+  --mono-pink: #f92672;
+  --mono-purple: #ae81ff;
+  --mono-border: rgba(248, 248, 242, 0.12);
+  --mono-border-strong: rgba(248, 248, 242, 0.24);
+  --mono-grid: rgba(248, 248, 242, 0.06);
+  --mono-glow-cyan: rgba(102, 217, 239, 0.18);
+  --mono-glow-pink: rgba(249, 38, 114, 0.18);
+}
+
+.monokai-landing {
+  background-color: var(--mono-bg);
+  color: var(--mono-text);
+  font-family: var(--font-swiss);
+}
+
+.monokai-landing h1,
+.monokai-landing h2,
+.monokai-landing h3 {
+  font-family: var(--font-swiss);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+/* Swiss accent line for cards */
+.mono-card-accent {
+  position: relative;
+}
+
+.mono-card-accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--mono-yellow);
+}
+
+.monokai-grid {
+  background-image:
+    linear-gradient(90deg, var(--mono-grid) 1px, transparent 1px),
+    linear-gradient(var(--mono-grid) 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
 ::selection {
-  background-color: oklch(84% 0.14 75);
-  color: oklch(18% 0.03 255);
+  background-color: var(--mono-yellow);
+  color: var(--mono-bg);
 }
 
 ::-moz-selection {
-  background-color: oklch(84% 0.14 75);
-  color: oklch(18% 0.03 255);
-}
-
-[data-theme=dark] ::selection {
-  background-color: oklch(62% 0.2 280);
-  color: oklch(96% 0.02 260);
-}
-
-[data-theme=dark] ::-moz-selection {
-  background-color: oklch(62% 0.2 280);
-  color: oklch(96% 0.02 260);
+  background-color: var(--mono-yellow);
+  color: var(--mono-bg);
 }

@@ -5,6 +5,7 @@ defmodule LiveCapturesWeb.PageHTML do
   See the `page_html` directory for all templates available.
   """
   use LiveCapturesWeb, :html
+  import LiveCapturesWeb.LandingComponents
 
   embed_templates "page_html/*"
 end
