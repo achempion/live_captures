@@ -214,6 +214,19 @@
   font-weight: 700;
 }
 
+/* Header accent styling */
+.monokai-landing h1 {
+  color: var(--mono-text);
+}
+
+.monokai-landing h2 {
+  color: var(--mono-cyan);
+}
+
+.monokai-landing h3 {
+  color: var(--mono-yellow);
+}
+
 /* Swiss accent line for cards */
 .mono-card-accent {
   position: relative;
