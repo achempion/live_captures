@@ -1,6 +1,6 @@
 # LiveCaptures
 
-LiveCapture helps you create high-quality LiveView components faster.
+Live Examples for the LiveCapture component library. Host your storybook here.
 
 ## Website
 
