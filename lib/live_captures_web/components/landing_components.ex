@@ -2,6 +2,7 @@ defmodule LiveCapturesWeb.LandingComponents do
   use LiveCapturesWeb, :html
 
   attr :color, :string, default: "yellow"
+
   def mono_divider(assigns) do
     ~H"""
     <div class={[
@@ -14,10 +15,11 @@ defmodule LiveCapturesWeb.LandingComponents do
   end
 
   attr :number, :string, required: true
+
   def mono_index(assigns) do
     ~H"""
     <span class="text-5xl sm:text-6xl lg:text-7xl font-bold text-[var(--mono-dim)] leading-none tracking-tighter">
-      <%= @number %>
+      {@number}
     </span>
     """
   end
@@ -62,6 +64,7 @@ defmodule LiveCapturesWeb.LandingComponents do
   attr :org, :string, required: true
   attr :org_extra, :string, default: nil
   attr :integration, :string, default: nil
+  attr :github, :string, default: nil
   attr :explore, :string, required: true
 
   def library(assigns) do
@@ -69,11 +72,11 @@ defmodule LiveCapturesWeb.LandingComponents do
     <.mono_card class="w-full max-w-4xl">
       <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h3 class="text-xl font-bold tracking-tight"><%= @name %></h3>
+          <h3 class="text-xl font-bold tracking-tight">{@name}</h3>
           <p class="mt-2 text-sm text-[var(--mono-muted)]">
-            by <%= @org %>
+            by {@org}
             <%= if @org_extra do %>
-              <span class="text-[var(--mono-dim)]">/</span> <%= @org_extra %>
+              <span class="text-[var(--mono-dim)]">/</span> {@org_extra}
             <% end %>
           </p>
         </div>
@@ -87,6 +90,17 @@ defmodule LiveCapturesWeb.LandingComponents do
               <.icon name="hero-arrow-top-right-on-square" class="size-4 text-[var(--mono-dim)]" />
             </.mono_button>
           <% end %>
+
+          <%= if @github do %>
+            <.mono_button
+              href={@github}
+              class="justify-center bg-[var(--mono-surface-strong)] text-[var(--mono-text)]"
+            >
+              <.icon name="brand-github" class="size-4" /> GitHub
+              <.icon name="hero-arrow-top-right-on-square" class="size-4 text-[var(--mono-dim)]" />
+            </.mono_button>
+          <% end %>
+
           <.mono_button
             href={@explore}
             class="justify-center gap-3 bg-[var(--mono-surface-strong)] text-[var(--mono-text)]"
