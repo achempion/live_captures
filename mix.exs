@@ -5,7 +5,7 @@ defmodule LiveCaptures.MixProject do
     [
       app: :live_captures,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.20",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -40,16 +40,16 @@ defmodule LiveCaptures.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.8.3"},
-      {:phoenix_html, "~> 4.1"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 1.1.0"},
+      {:phoenix, "~> 1.8.17"},
+      {:phoenix_html, "~> 4.4"},
+      {:phoenix_live_reload, "~> 1.7", only: :dev},
+      {:phoenix_live_view, "~> 1.2.15"},
       {:phoenix_live_dashboard,
        github: "achempion/phoenix_live_dashboard", branch: "live-capture-example"},
-      {:live_capture, "~> 0.2"},
-      {:lazy_html, ">= 0.1.0", only: :test},
-      {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
-      {:tailwind, "~> 0.3", runtime: Mix.env() == :dev},
+      {:live_capture, "~> 0.3.0"},
+      {:lazy_html, "~> 0.1.15", only: :test},
+      {:esbuild, "~> 0.10.1", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.5.2", runtime: Mix.env() == :dev},
       {:heroicons,
        github: "tailwindlabs/heroicons",
        tag: "v2.2.0",
@@ -57,12 +57,12 @@ defmodule LiveCaptures.MixProject do
        app: false,
        compile: false,
        depth: 1},
-      {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 1.0"},
-      {:jason, "~> 1.2"},
-      {:dns_cluster, "~> 0.2.0"},
-      {:bandit, "~> 1.5"}
+      {:telemetry_metrics, "~> 1.2"},
+      {:telemetry_poller, "~> 1.3"},
+      {:gettext, "~> 1.0.2"},
+      {:jason, "~> 1.4.5"},
+      {:dns_cluster, "~> 0.3.1"},
+      {:bandit, "~> 1.15"}
     ]
   end
 

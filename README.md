@@ -2,6 +2,26 @@
 
 Live Examples for the LiveCapture component library. Host your storybook here.
 
+## Development
+
+Use Elixir **1.20.5** and Erlang/OTP **29.1.3**, pinned in `.tool-versions`:
+
+```sh
+asdf install
+mix setup
+mix phx.server
+```
+
+Run `mix precommit` before submitting changes. Build production assets with
+`bin/build.sh`. Node.js is not required: the Mix wrappers download the pinned
+Tailwind CSS and esbuild binaries.
+
+The LiveDashboard dependency intentionally uses the `live-capture-example` fork,
+which provides the capture examples not available in the upstream package.
+
+Vendored frontend dependencies are daisyUI **5.8.2**, topbar **3.0.1**, and
+Heroicons **2.2.0** (fetched through Mix).
+
 ## Website
 
 The app is automatically deployed to [captures.captureui.com](https://captures.captureui.com/).
